@@ -4,8 +4,14 @@ type Etiqueta = String
 type Nombre = String
 
 insertar :: Ord a => a -> [a] -> [a]
-insertar cancion [] = [cancion] -- convierte a cancion en una lista asi compara
-insertar cancion (lista:ys) | cancion < lista = cancion:lista:ys --En ys vas metiendo las canciones lista es tomada como cada elemento individual
-                            | otherwise = lista:(insertar cancion ys)--elemento recursivo
+insertar cancion [] = [cancion] 
+insertar cancion (lista:ys) | cancion < lista = cancion:lista:ys 
+                            | otherwise = lista: insertar cancion ys
 
+
+test :: [Bool]
+test = [insertar "hola"[] == ["hola"],
+       insertar "hola"["a"] == ["a","hola"],
+       insertar "hola"["a", "z"] == ["a","hola","z"],
+       insertar "hola"["a", "z"] == ["a","z","hola"]]
             

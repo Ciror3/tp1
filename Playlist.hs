@@ -1,4 +1,4 @@
-module Playlist ( Playlist, nuevaP, actualP, skipP, backP)--, resetP )
+module Playlist ( Playlist, nuevaP, actualP, skipP, backP, resetP )
 where
 
 import Tipos
@@ -21,5 +21,5 @@ backP :: Playlist -> Playlist
 backP (Play n tema) | n < 1 = error "Indice negativo"
                     | otherwise = Play (n-1) tema
 
--- resetP :: Playlist -> Playlist
--- resetP Play = Play
+resetP :: Playlist -> Playlist
+resetP (Play n temas) = Play n temas

@@ -7,6 +7,7 @@ data Tema = Tem Nombre [Etiqueta] Datos deriving (Eq,Show,Ord)
 
 nuevoT :: Nombre -> Datos -> Tema
 nuevoT nombre = Tem nombre []
+testnuevoT= [nuevoT "hola" "v" == Tem "hola" [] "v"]
 
 nombreT :: Tema -> Nombre
 nombreT (Tem nom _ _) = nom 
@@ -21,4 +22,4 @@ agregarT :: Etiqueta ->Tema ->Tema
 agregarT neweti (Tem nom eti dat) = Tem nom (eti++[neweti]) dat
 
 aplicaT :: Etiqueta ->Tema ->Bool
-aplicaT competi (Tem nom eti dat) = [competi] == eti
+aplicaT neweti (Tem nom eti dat) = [neweti] == eti
