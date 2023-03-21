@@ -22,4 +22,12 @@ backP (Play n tema) | n < 1 = error "Indice negativo"
                     | otherwise = Play (n-1) tema
 
 resetP :: Playlist -> Playlist
-resetP (Play n temas) = Play n temas
+resetP (Play n temas) = Play 0 temas
+
+testnuevaP =[nuevaP [] == Play 0 [],--True
+             nuevaP [nuevoT "temas" "ahora"] == Play 0 [nuevoT "temas" "ahora"],--True
+             nuevaP [nuevoT "temas" "ahora"] == Play 0 [nuevoT "temas" "ahoa"], --False
+             nuevaP [nuevoT "temas" "ahora", nuevoT "como" "hace"] == Play 0 [nuevoT "temas" "ahora" , nuevoT "como" "hace"]]--True
+
+testactualP = [actualP (Play 0 [nuevoT "temas" "ahora"]) == nuevoT "temas" "ahora",--True
+               actualP (Play 1 [nuevoT "temas" "ahora"]) == nuevoT "temas" "ahora"]--error index to large
