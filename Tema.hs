@@ -33,5 +33,5 @@ testagregarT = [agregarT "eti2" (Tem "" ["eti1"] "") == Tem "" ["eti1","eti2"] "
 
 aplicaT :: Etiqueta ->Tema ->Bool
 aplicaT neweti (Tem nom eti dat) = [neweti] == eti
-testaplicaT = [aplicaT "eti1" (Tem "" ["eti1"] "" ) == True, --True 
-               aplicaT "eti2" (Tem "" ["eti1"] "" ) == True] --False
+testaplicaT = [aplicaT "eti1" (Tem "" ["eti1"] "" ), --True 
+               aplicaT "eti2" (Tem "" ["eti1"] "" )] --False

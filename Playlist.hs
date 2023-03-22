@@ -1,4 +1,4 @@
-module Playlist ( Playlist, nuevaP, actualP, skipP, backP, resetP )
+module Playlist ( Playlist, nuevaP, intP ,actualP, skipP, backP, resetP )
 where
 
 import Tipos
@@ -9,6 +9,9 @@ data Playlist = Play Int [ Tema ] deriving (Eq, Show)
 --nuevoT nombre datos 
 nuevaP :: [Tema] -> Playlist
 nuevaP = Play 0 
+
+intP :: Playlist -> Int
+intP (Play n _) = n
 
 actualP :: Playlist -> Tema
 actualP (Play n tema) = tema !! n

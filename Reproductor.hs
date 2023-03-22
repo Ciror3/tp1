@@ -1,4 +1,4 @@
-module Reproductor ( Reproductor, nuevoR, archivosR, temasR)--, playR, actualR, avanzarR, retrocederR,reiniciarR)
+module Reproductor ( Reproductor, nuevoR, archivosR, temasR, actualR, avanzarR, retrocederR,reiniciarR)
 where
 
 import Tipos
@@ -14,14 +14,15 @@ nuevoR fs = RP fs (nuevaP [nuevoT "" ""])
 -- lista de temas vacıa.
 archivosR :: Reproductor -> FileSystem
 archivosR (RP fs _) =  fs
---listaParaR :: Etiqueta -> Reproductor ->[Tema] va a las etiquetas de playlist
---listasParaR eti (RP fs playlist) =   
-
+listasparaR :: Etiqueta -> Reproductor ->[Tema] --va a las etiquetas de filesystem y devuelve la lista de temas
+listasparaR eti (RP fs playlist) = filtrarF eti fs 
+--a playlist le cambio el n y chequeo aplicat eti (actualP(skipP(playlist)))
 temasR :: Reproductor ->[Tema]
 temasR (RP fs _) = temasF fs
 
--- playR :: Reproductor ->Etiqueta ->Reproductor va a las etiquetas de fylesistem
--- playR (RP fs ps) eti = if 
+playR :: Reproductor ->Etiqueta ->Reproductor -- usa listasparaR
+playR (RP fs ps) neweti = RP fs (nuevaP(filtrarF neweti fs))
+
 actualR :: Reproductor ->Tema
 actualR (RP _ ps) = actualP ps
 avanzarR :: Reproductor ->Reproductor
