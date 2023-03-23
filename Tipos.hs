@@ -9,7 +9,7 @@ insertar cancion (lista:ys) | cancion < lista = cancion:lista:ys
                             | otherwise = lista: insertar cancion ys
 
 
-test :: [Bool]
+-- TESTING --
 test = [insertar "hola"[] == ["hola"],
        insertar "hola"["a"] == ["a","hola"],
        insertar "hola"["a", "z"] == ["a","hola","z"],
