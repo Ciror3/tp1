@@ -10,8 +10,8 @@ insertar cancion (lista:ys) | cancion < lista = cancion:lista:ys
 
 
 -- TESTING --
-test = [insertar "hola"[] == ["hola"],
-       insertar "hola"["a"] == ["a","hola"],
-       insertar "hola"["a", "z"] == ["a","hola","z"],
-       insertar "hola"["a", "z"] == ["a","z","hola"]]
+test = [insertar "hola"[] == ["hola"], --TRUE
+       insertar "hola"["a"] == ["a","hola"], --TRUE
+       insertar "hola"["a", "z"] == ["a","hola","z"], --TRUE
+       insertar "hola"["a", "z"] == ["a","z","hola"]] --FALSE
             
